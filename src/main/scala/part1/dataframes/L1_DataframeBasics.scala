@@ -1,4 +1,4 @@
-package part2.dataframes
+package part1.dataframes
 
 import org.apache.spark.sql.{Row, SparkSession}
 import org.apache.spark.sql.types.{DoubleType, LongType, StringType, StructField, StructType}

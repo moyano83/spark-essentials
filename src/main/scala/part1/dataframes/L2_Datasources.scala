@@ -1,8 +1,8 @@
-package part2.dataframes
+package part1.dataframes
 
 import org.apache.spark.sql.{SaveMode, SparkSession}
 import org.apache.spark.sql.types._
-import part2.dataframes.L1_DataframeBasics.{carsSchema, spark}
+import L1_DataframeBasics.{carsSchema, spark}
 
 object L2_Datasources extends App{
   // Creating a spark session

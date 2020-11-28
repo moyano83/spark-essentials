@@ -1,8 +1,7 @@
-package part2.dataframes
+package part1.dataframes
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
-import part2.dataframes.L2_Datasources.spark
 object L3_ColumnsAndExpressions extends App{
   // Creating a spark session
   val spark = SparkSession
