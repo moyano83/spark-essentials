@@ -52,7 +52,7 @@ object L2_SparkSql extends App{
   transferData(List("departments", "dept_emp", "dept_manager", "employees", "salaries", "titles "))
 
   // Now we can read the data from the warehouse like:
-  val employees = spark.read.table("Employees")
+  //val employees = spark.read.table("Employees")
 
   /**
     * Exercises:
@@ -73,7 +73,7 @@ object L2_SparkSql extends App{
   spark.sql(
     """
       |select avg(s.salary), d.dept_no from salaries s inner join employees e on s.emp_no = e.emp_no inner join dept_emp d on
-      | d.emp_no = e.emp_no group by d.dept_no
+      | d.emp_no = e.emp_no where e.hire_date between '2000-01-01' and '2001-01-01' group by d.dept_no
       |""".stripMargin).show()
   /**
     * 4 - Show the name of the best paying department for employees hired in (2)
@@ -84,6 +84,7 @@ object L2_SparkSql extends App{
       | inner join employees e on s.emp_no = e.emp_no
       | inner join dept_emp dt on dt.emp_no = e.emp_no
       | inner join departments d on d.dept_no = dt.dept_no
+      | where e.hire_date between '2000-01-01' and '2001-01-01'
       | group by d.dept_name) as t sort by t.retribution desc limit 1
       |""".stripMargin).show()
 }
